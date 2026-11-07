@@ -1,4 +1,4 @@
-"""TranslationFlow：猫武士同人章节 英译中 自动化流水线。
+"""TranslationFlow：同人 / 长篇小说 英译中 自动化流水线。
 
 模块划分（对应需求书 §2.1）：
     config         配置加载与校验
@@ -7,6 +7,7 @@
     replacer       模式 A / 模式 B 替换
     noun_table     全局专有名词表
     chunker        长文本分块与 token 估算
+    fandom         IP 档案（命名规则 / 称谓 / 文化适配）
     cost           成本记录、预算闸门、价格表
     prompts        四个 AI 步骤的提示词与 JSON schema
     deepseek_client  统一 DeepSeek/OpenAI 兼容客户端

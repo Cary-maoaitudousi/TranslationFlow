@@ -386,7 +386,7 @@ def _cli_event(kind: str, payload: dict) -> None:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(prog="cli.py", description="猫武士同人翻译流水线 CLI")
+    p = argparse.ArgumentParser(prog="cli.py", description="TranslationFlow · 同人翻译流水线 CLI")
     p.add_argument("-c", "--config", default=None, help="配置文件路径（默认 config.json）")
 
     sub = p.add_subparsers(dest="cmd", required=True)

@@ -18,6 +18,7 @@ from .cost import estimate_call_cost_cny, tier_of
 from .deepseek_client import DeepSeekClient
 from .logger import get_logger
 from .replacer import has_cjk
+from .fandom import profile_for
 from .sizing import budget_for, plan_translation, summarize
 
 log = get_logger("deepseek")
@@ -80,6 +81,7 @@ def recognize_new_nouns(
     report.chunks = len(chunks)
     thinking = step_thinking(cfg, 3)
     model = step_model(cfg, 3)
+    profile = profile_for(cfg)
 
     seen: dict[str, dict[str, str]] = {}
     for i, chunk in enumerate(chunks, start=1):
@@ -87,7 +89,7 @@ def recognize_new_nouns(
         est = estimate_tokens(chunk, float(cfg.CHARS_PER_TOKEN_EN))
         result = client.call_json(
             step_name="3-人名识别", chapter_index=chapter_index,
-            system=prompts.NOUNS_SYSTEM, user=prompts.render_nouns_user(chunk),
+            system=prompts.nouns_system(profile), user=prompts.render_nouns_user(chunk),
             schema_key="nouns", model=model, temperature=0.1,
             max_tokens=budget_for(est, cfg, ratio=1.2, floor=1500, thinking=thinking),
             thinking=thinking,
@@ -148,7 +150,8 @@ def translate_chapter(
     if style_sample is None:
         style_sample, style_is_excerpt = load_style_sample(cfg)
 
-    system = prompts.render_translate_system(style_sample, style_is_excerpt)
+    profile = profile_for(cfg)
+    system = prompts.translate_system(profile, style_sample, style_is_excerpt)
     thinking = step_thinking(cfg, 6)
     model = step_model(cfg, 6)
     chunks, plans = plan_translation(text, cfg, thinking)
@@ -243,6 +246,7 @@ def detect_cultural_issues(
     report.chunks = len(chunks)
     thinking = step_thinking(cfg, 7)
     model = step_model(cfg, 7)
+    profile = profile_for(cfg)
     max_entries = int(cfg.get("MAX_POLISH_ENTRIES", 30))
     mode = str(cfg.get("POLISH_OUTPUT_MODE", "phrase"))
     window = int(cfg.get("POLISH_CONTEXT_WINDOW", 14))
@@ -256,13 +260,13 @@ def detect_cultural_issues(
         est = estimate_tokens(chunk, float(cfg.CHARS_PER_TOKEN_EN))
         if mode == "phrase":
             system, user, schema_key = (
-                prompts.POLISH_PHRASE_SYSTEM, prompts.render_polish_phrase_user(chunk),
+                prompts.polish_system(profile), prompts.render_polish_phrase_user(chunk),
                 "polish_phrase",
             )
             max_out = budget_for(est, cfg, ratio=0.6, floor=1500, thinking=thinking)
         else:
             system, user, schema_key = (
-                prompts.POLISH_SYSTEM, prompts.render_polish_user(chunk), "polish",
+                prompts.polish_sentence_system(profile), prompts.render_polish_user(chunk), "polish",
             )
             max_out = budget_for(est, cfg, ratio=2.4, floor=2000, thinking=thinking)
 
@@ -352,10 +356,11 @@ def recommend_titles(
     chapter_index: int,
 ) -> tuple[list[dict[str, str]], StepReport]:
     report = StepReport(step=10, name="章名推荐")
+    profile = profile_for(cfg)
     result = client.call_json(
         step_name="10-章名推荐", chapter_index=chapter_index,
-        system=prompts.TITLES_SYSTEM,
-        user=prompts.render_titles_user(final_chinese, int(cfg.get("TITLE_INPUT_CHAR_LIMIT", 6000))),
+        system=prompts.titles_system(profile),
+        user=prompts.render_titles_user(final_chinese, profile.name, int(cfg.get("TITLE_INPUT_CHAR_LIMIT", 6000))),
         schema_key="titles", model=step_model(cfg, 10), temperature=0.7,
         max_tokens=800, thinking=step_thinking(cfg, 10),
     )

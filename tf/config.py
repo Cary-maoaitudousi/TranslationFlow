@@ -59,6 +59,7 @@ DEFAULTS: dict[str, Any] = {
     "OUTPUT_DOC_PATH": "output/译文.docx",
     "GLOBAL_NOUN_TABLE_PATH": "data/noun_table.json",
     "STYLE_SAMPLE_PATH": "data/style_sample.txt",
+    "FANDOM_PROFILE_PATH": "profiles/generic.json",   # IP 档案：命名规则/称谓/文化适配
     # ---- 循环控制 ----
     "START_CHAPTER": 1,          # 从文档中第几个章头开始（1 基）
     "LOOP_COUNT": 1,             # 本次处理章数

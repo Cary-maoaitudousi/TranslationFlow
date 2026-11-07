@@ -11,7 +11,9 @@ from pathlib import Path
 import pytest
 
 from tf.config import DEFAULTS, load_config, save_config, soft_warnings, validate_config
-from tf.prompts import JSON_SCHEMAS, NOUNS_SYSTEM, POLISH_SYSTEM, TITLES_SYSTEM, TRANSLATE_SYSTEM
+from tf import prompts
+from tf.fandom import FandomProfile, load_profile
+from tf.prompts import JSON_SCHEMAS
 
 ROOT = Path(__file__).resolve().parent.parent
 def _is_project_file(path: Path) -> bool:
@@ -59,16 +61,72 @@ def test_api_key_read_from_env_only():
     assert "DEEPSEEK_API_KEY" not in DEFAULTS
 
 
-@pytest.mark.parametrize(
-    "system_prompt",
-    [NOUNS_SYSTEM, TRANSLATE_SYSTEM, POLISH_SYSTEM, TITLES_SYSTEM],
-)
-def test_prompts_require_json(system_prompt):
-    """§5.3：system prompt 必须含 json 字样、schema 样例与"只输出 JSON"。"""
-    lowered = system_prompt.lower()
-    assert "json" in lowered
-    assert "{" in system_prompt
-    assert "只输出" in system_prompt
+def _all_system_prompts(profile) -> dict[str, str]:
+    return {
+        "nouns": prompts.nouns_system(profile),
+        "translate": prompts.translate_system(profile, "样本正文", False),
+        "polish_phrase": prompts.polish_system(profile),
+        "polish_sentence": prompts.polish_sentence_system(profile),
+        "titles": prompts.titles_system(profile),
+    }
+
+
+@pytest.mark.parametrize("profile_path", ["profiles/warriors.json", "profiles/generic.json"])
+def test_prompts_require_json(profile_path):
+    """每个 system prompt 都必须含 json 字样、JSON 样例与"只输出 JSON"。"""
+    profile = load_profile(ROOT / profile_path)
+    for name, system_prompt in _all_system_prompts(profile).items():
+        lowered = system_prompt.lower()
+        assert "json" in lowered, name
+        assert "{" in system_prompt, name
+        assert "只输出" in system_prompt, name
+
+
+def test_prompts_follow_profile_not_hardcoded_fandom():
+    """核心提示词不能写死某个作品：猫武士档案有猫族规则，通用档案没有。"""
+    warriors = _all_system_prompts(load_profile(ROOT / "profiles" / "warriors.json"))
+    generic = _all_system_prompts(load_profile(ROOT / "profiles" / "generic.json"))
+
+    joined_w = " ".join(warriors.values())
+    joined_g = " ".join(generic.values())
+
+    # 猫武士档案：命名规则与文化示例都出现了
+    assert "xxxxkit" in joined_w and "XX崽" in joined_w
+    assert "xxxxpaw" in joined_w and "XX爪" in joined_w
+    assert "xxxxstar" in joined_w and "XX星" in joined_w
+    assert "Thistleclaw" in warriors["nouns"] and "蓟掌" in warriors["nouns"]
+    assert "量词" in joined_w
+    assert "猫" in joined_w
+
+    # 通用档案：不出现作品专属设定，改用档案里的通用规则
+    assert "xxxxkit" not in joined_g
+    assert "蓟掌" not in joined_g
+    assert "猫" not in joined_g
+    assert "角色" in joined_g
+    assert "四字" in generic["titles"]
+
+
+def test_profile_missing_falls_back_to_generic(tmp_path):
+    profile = load_profile(tmp_path / "nope.json")
+    assert profile.is_fallback is True
+    text = prompts.nouns_system(profile)
+    assert "通用作品" in text and "人名" in text
+
+
+def test_profile_fields_reach_prompts():
+    profile = FandomProfile(
+        name="测试作品",
+        subject_singular="机兵",
+        naming_rules=["头衔放在名字后面"],
+        culture_rules=["把“人”改成“机兵”"],
+        title_rule="四字章节名",
+        translation_brief="专有名词使用给定中文",
+    )
+    prompts_map = _all_system_prompts(profile)
+    assert "测试作品" in prompts_map["nouns"]
+    assert "头衔放在名字后面" in prompts_map["nouns"]
+    assert "把“人”改成“机兵”" in prompts_map["polish_phrase"]
+    assert "专有名词使用给定中文" in prompts_map["translate"]
 
 
 def test_json_schema_keys_present():
@@ -81,22 +139,21 @@ def test_json_schema_keys_present():
 
 
 def test_prompts_keep_business_constraints():
-    """附录 A 的关键业务约束不得在 JSON 化过程中丢失。"""
-    assert "xxxxkit" in NOUNS_SYSTEM and "XX崽" in NOUNS_SYSTEM
-    assert "xxxxpaw" in NOUNS_SYSTEM and "XX爪" in NOUNS_SYSTEM
-    assert "xxxxstar" in NOUNS_SYSTEM and "XX星" in NOUNS_SYSTEM
-    assert "Thistleclaw" in NOUNS_SYSTEM and "蓟掌" in NOUNS_SYSTEM
-    assert "已经是中文" in NOUNS_SYSTEM
+    """提示词里那些与作品无关的硬约束不能丢。"""
+    profile = load_profile(ROOT / "profiles" / "warriors.json")
+    p = _all_system_prompts(profile)
 
-    assert "人体肢体" in POLISH_SYSTEM
-    assert "量词" in POLISH_SYSTEM
-    assert "逐字符一致" in POLISH_SYSTEM
+    assert "已经是中文" in p["nouns"]
+    assert "同一" in p["nouns"] or "前后一致" in p["nouns"]
 
-    assert "四字" in TITLES_SYSTEM and "5" in TITLES_SYSTEM
+    assert "逐字符一致" in p["polish_phrase"]
+    assert "逐字符一致" in p["polish_sentence"]
 
-    assert "文风参考样本" in TRANSLATE_SYSTEM
-    assert "不引入外部无关信息" in TRANSLATE_SYSTEM
-    assert "不要改动" in TRANSLATE_SYSTEM
+    assert "四字" in p["titles"] and "5" in p["titles"]
+
+    assert "文风参考样本" in p["translate"]
+    assert "不引入外部无关信息" in p["translate"]
+    assert "保留" in p["translate"]
 
 
 def test_validate_config_reports_missing_source(tmp_path):

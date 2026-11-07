@@ -176,7 +176,7 @@ class ChaptersDialog(QDialog):
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("猫武士同人翻译流水线 v2.0")
+        self.setWindowTitle("TranslationFlow · 同人翻译流水线")
         self.resize(1240, 980)
 
         self.cfg = load_config(None)
@@ -224,6 +224,20 @@ class MainWindow(QMainWindow):
         form.addRow("替换表", self._wrap(table_row))
 
         form.addRow("文风样本", self._browse_row(self.e_style, "文本 (*.txt)"))
+        self.e_profile = QLineEdit()
+        self.e_profile.setPlaceholderText("profiles/generic.json（命名规则 / 称谓 / 文化适配）")
+        profile_row = QHBoxLayout()
+        profile_row.addWidget(self.e_profile, 1)
+        self.b_profile_browse = QPushButton("浏览…")
+        self.b_profile_open = QPushButton("打开档案")
+        self.b_profile_reload = QPushButton("重载")
+        profile_row.addWidget(self.b_profile_browse)
+        profile_row.addWidget(self.b_profile_open)
+        profile_row.addWidget(self.b_profile_reload)
+        form.addRow("IP 档案", self._wrap(profile_row))
+        self.l_profile = QLabel("")
+        self.l_profile.setStyleSheet("color:#888;")
+        form.addRow("", self.l_profile)
 
         # ===== API 配置 =====
         api_box = QGroupBox("DeepSeek API")
@@ -428,6 +442,9 @@ class MainWindow(QMainWindow):
         self.b_import_table.clicked.connect(self._on_import_table)
         self.b_edit_table.clicked.connect(self._on_edit_table)
         self.b_holiday_help.clicked.connect(self._on_holiday_help)
+        self.b_profile_browse.clicked.connect(self._on_pick_profile)
+        self.b_profile_open.clicked.connect(self._on_open_profile)
+        self.b_profile_reload.clicked.connect(self._refresh_profile_label)
 
     def _browse_row(self, line_edit: QLineEdit, filt: str, save: bool = False) -> QWidget:
         box = QWidget(); lay = QHBoxLayout(box); lay.setContentsMargins(0, 0, 0, 0)
@@ -451,6 +468,48 @@ class MainWindow(QMainWindow):
         box = QWidget()
         box.setLayout(layout)
         return box
+
+    # -- IP 档案 -----------------------------------------------------------
+    def _refresh_profile_label(self) -> None:
+        """显示当前档案的名称与规则条数，避免"改了文件没生效"。"""
+        from ..fandom import load_profile
+
+        raw = self.e_profile.text().strip()
+        profile = load_profile(self.cfg.path("FANDOM_PROFILE_PATH") if raw else None)
+        if profile.is_fallback:
+            self.l_profile.setText(
+                "⚠ 未找到档案，正在使用通用兜底规则（命名规则较少，建议指定 profiles/*.json）"
+            )
+            self.l_profile.setStyleSheet("color:#e08a1e;")
+        else:
+            self.l_profile.setText(
+                f"当前档案：{profile.name}｜命名规则 {len(profile.naming_rules)} 条｜"
+                f"文化适配规则 {len(profile.culture_rules)} 条｜角色称谓「{profile.subject_singular}」"
+            )
+            self.l_profile.setStyleSheet("color:#43a047;")
+
+    def _on_pick_profile(self) -> None:
+        path, _ = QFileDialog.getOpenFileName(
+            self, "选择 IP 档案", str(self.cfg.path("FANDOM_PROFILE_PATH").parent), "JSON (*.json)"
+        )
+        if path:
+            self.e_profile.setText(path)
+            self._refresh_profile_label()
+
+    def _on_open_profile(self) -> None:
+        import os
+
+        target = self.cfg.path("FANDOM_PROFILE_PATH")
+        if not target.exists():
+            QMessageBox.information(
+                self, "档案不存在",
+                f"没有找到 {target}。\n可以参考 profiles/_template.json 新建一个。",
+            )
+            return
+        try:
+            os.startfile(str(target))  # noqa: S606 - 用系统默认编辑器打开
+        except Exception:  # noqa: BLE001
+            QMessageBox.information(self, "无法打开", str(target))
 
     # -- 替换表 ------------------------------------------------------------
     def _on_import_table(self) -> None:
@@ -537,6 +596,8 @@ class MainWindow(QMainWindow):
         self.c_cost_priority.setChecked(bool(cfg.COST_PRIORITY))
         self.c_wait_offpeak.setChecked(bool(cfg.WAIT_FOR_OFFPEAK))
         self.e_holidays.setText(", ".join(str(h) for h in (cfg.HOLIDAYS or [])))
+        self.e_profile.setText(str(cfg.get("FANDOM_PROFILE_PATH", "")))
+        self._refresh_profile_label()
 
         for step_no, _label in AI_STEPS:
             combo = self.model_combos[step_no]
@@ -559,6 +620,7 @@ class MainWindow(QMainWindow):
         cfg["OUTPUT_DOC_PATH"] = self.e_output.text().strip()
         cfg["GLOBAL_NOUN_TABLE_PATH"] = self.e_nouns.text().strip()
         cfg["STYLE_SAMPLE_PATH"] = self.e_style.text().strip()
+        cfg["FANDOM_PROFILE_PATH"] = self.e_profile.text().strip()
         cfg["START_CHAPTER"] = self.s_start.value()
         cfg["LOOP_COUNT"] = self.s_count.value()
         cfg["CHAPTER_LABEL_MODE"] = self.c_label_mode.currentText()

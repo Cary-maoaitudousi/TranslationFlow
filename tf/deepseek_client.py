@@ -495,7 +495,7 @@ def _mock_translate(user_text: str) -> dict:
     body = user_text.split("<<<")[-1].rsplit(">>>", 1)[0] if "<<<" in user_text else user_text
     paras = [p for p in re.split(r"\n\s*\n", body) if p.strip()]
     return {
-        "translation": "\n\n".join(f"（模拟译文第{i + 1}段）两猫并肩穿过雾气弥漫的蕨丛。" for i in range(len(paras))) or "（模拟译文）",
+        "translation": "\n\n".join(f"（模拟译文第{i + 1}段）这里放模拟译文，仅用于流程联调。" for i in range(len(paras))) or "（模拟译文）",
         "notes": [],
     }
 
@@ -513,13 +513,13 @@ def _mock_polish(user_text: str) -> dict:
 
 def _mock_titles(_user_text: str) -> dict:
     styles = ["意象象征", "谶语悬念", "场景叙事", "反讽对照", "主题提炼"]
-    titles = ["星池寒镜", "无头蛇谶", "月池聚巫", "星原枯叶", "合则一线"]
+    titles = ["风起长夜", "孤灯照影", "暗潮将至", "旧盟新裂", "殊途同归"]
     reasons = [
-        "月池如镜映星，却照出星族凋敝的寒意。",
-        "扣住预言意象，留下毒牙与终局的悬念。",
-        "以巫医集会为叙事支点，点明三线推进。",
-        "星族狩猎场本应常青，却如落叶季枯寒。",
-        "凝练众猫合力尚有一线生机的主题。",
+        "以长夜与风声起笔，笼罩全章的不安。",
+        "扣住悬而未决的线索，留下伏笔。",
+        "以关键场景为叙事支点，点明推进。",
+        "昔日盟约与当下处境形成反差。",
+        "凝练本章的核心主题。",
     ]
     return {"titles": [{"style": s, "title": t, "reason": r} for s, t, r in zip(styles, titles, reasons)]}
 

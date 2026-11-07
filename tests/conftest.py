@@ -37,6 +37,7 @@ def make_config(tmp_path: Path, **overrides) -> Config:
     cfg["CACHE_DIR"] = str(tmp_path / "cache")
     cfg["SOURCE_DOC_PATH"] = str(ROOT / "samples" / "source_sample.txt")
     cfg["STYLE_SAMPLE_PATH"] = str(ROOT / "samples" / "style_sample.txt")
+    cfg["FANDOM_PROFILE_PATH"] = str(ROOT / "profiles" / "warriors.json")
     cfg["GLOBAL_NOUN_TABLE_PATH"] = str(tmp_path / "data" / "noun_table.json")
     cfg["OUTPUT_DOC_PATH"] = str(tmp_path / "output" / "译文.docx")
     cfg["MOCK_MODE"] = True

@@ -1,4 +1,4 @@
-# 打包成独立目录（含 exe），产物在 dist\TranslationFlow\
+﻿# 打包成独立目录（含 exe），产物在 dist\TranslationFlow\
 # 用法： .\packaging\build.ps1            （默认用 .venv311）
 #        .\packaging\build.ps1 -Python .venv\Scripts\python.exe
 
@@ -38,6 +38,7 @@ Copy-Item (Join-Path $internal "data\noun_table.json") (Join-Path $dist "data\no
 if (-not (Test-Path (Join-Path $dist "samples"))) {
     Copy-Item (Join-Path $internal "samples") (Join-Path $dist "samples") -Recurse -Force
 }
+Copy-Item (Join-Path $internal "profiles") (Join-Path $dist "profiles") -Recurse -Force
 New-Item -ItemType Directory -Force (Join-Path $dist "output") | Out-Null
 New-Item -ItemType Directory -Force (Join-Path $dist "logs") | Out-Null
 

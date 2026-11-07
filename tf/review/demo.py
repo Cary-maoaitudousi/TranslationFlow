@@ -17,17 +17,25 @@ from pathlib import Path
 from typing import Any
 
 from ..logger import get_logger
+from ..fandom import profile_for
 from ..noun_table import NounTable
 
 log = get_logger("review")
 
 FALLBACK_ZH = (
-    "她咕噜了一声，两人陷入了惬意的沉默，小风心里满是感激。\n\n"
+    "她咕哝了一声，两人陷入了惬意的沉默，他心里满是感激。\n\n"
     "这真是一副令人害怕的场景。\n\n"
     "“可毕竟他们人太多了，我双拳难敌四手！”\n\n"
-    "四只爪子陷进泥里，他抬起眼睛望向高岩。\n\n"
-    "月光把族猫的影子拉得很长，没有一只猫说话。"
+    "四周安静了下来，谁也没有先开口。"
 )
+
+# 通用（非特定 IP）时的中性替换表；有 IP 档案时用档案里的称谓
+NEUTRAL_REWRITES = [
+    ("两人", "两者"),
+    ("他们人", "他们"),
+    ("令人", "令他"),
+    ("一个人", "一个身影"),
+]
 
 
 def _zh_sample(cfg) -> str:
@@ -46,31 +54,38 @@ def build_demo_data(cfg) -> dict[str, Any]:
     source_entries = table.entries[-18:] if table.entries else []
     if not source_entries:
         source_entries = [
-            {"source": "ThunderClan", "target": "雷族"},
-            {"source": "Moonpool", "target": "月池"},
-            {"source": "Firestar", "target": "火星"},
-            {"source": "Scourge", "target": "长鞭"},
+            {"source": "Northwatch", "target": "北望堡"},
+            {"source": "Silver River", "target": "银水河"},
+            {"source": "Aldren", "target": "奥德伦"},
+            {"source": "Corvin", "target": "科文"},
         ]
     noun_entries = [dict(e) for e in source_entries]
     # 混入两条真实"待审核"的英文名，模拟 AI 推荐
     noun_entries += [
-        {"source": "Bramblepath", "target": "荆径"},
-        {"source": "Mistkit", "target": ""},          # 空译名 → 验证保护
-        {"source": "Ashenwater", "target": "灰水"},
+        {"source": "Mirelle", "target": "米蕾尔"},
+        {"source": "Thornwick", "target": ""},        # 空译名 → 验证保护
+        {"source": "Ashen Ford", "target": "灰渡"},
     ]
 
     zh_text = _zh_sample(cfg)
+    profile = profile_for(cfg)
+    subject = profile.subject_singular if not profile.is_fallback else ""
+    if subject and subject not in ("角色", "人"):
+        rewrites = [("两人", f"两{subject}"), ("他们人", f"他们{subject}"), ("令人", "令他"),
+                    ("人", subject)]
+        context_note = f"人类特征表达 → 改用「{subject}」"
+    else:
+        rewrites = NEUTRAL_REWRITES
+        context_note = "人类特征表达 → 中性化"
     polish_entries: list[dict[str, str]] = []
     for m in re.finditer(r"[^。！？\n]{0,12}人[^。！？\n]{0,12}[。！？]?", zh_text):
         snippet = m.group(0).strip()
         if len(snippet) < 4:
             continue
-        polish_entries.append({
-            "source": snippet,
-            "target": snippet.replace("两人", "两猫").replace("他们人", "他们猫")
-                              .replace("令人", "令他").replace("人", "猫"),
-            "context": "人类特征表达 → 动物化",
-        })
+        target = snippet
+        for src, dst in rewrites:
+            target = target.replace(src, dst)
+        polish_entries.append({"source": snippet, "target": target, "context": context_note})
         if len(polish_entries) >= 8:
             break
     if not polish_entries:
@@ -86,11 +101,11 @@ def build_demo_data(cfg) -> dict[str, Any]:
     })
 
     titles = [
-        {"style": "意象象征", "title": "星池寒镜", "reason": "月池如镜映星，却照出星族凋敝的寒意。"},
-        {"style": "谶语悬念", "title": "无头蛇谶", "reason": "扣住预言意象，留下毒牙与终局的悬念。"},
-        {"style": "场景叙事", "title": "月池聚巫", "reason": "以巫医集会为支点，点明三线推进。"},
-        {"style": "反讽对照", "title": "星原枯叶", "reason": "星族狩猎场本应常青，却如落叶季枯寒。"},
-        {"style": "主题提炼", "title": "合则一线", "reason": "凝练众猫合力尚有一线生机的主题。"},
+        {"style": "意象象征", "title": "风起长夜", "reason": "以长夜与风声起笔，笼罩全章的不安。"},
+        {"style": "谶语悬念", "title": "孤灯照影", "reason": "扣住悬而未决的线索，留下伏笔。"},
+        {"style": "场景叙事", "title": "暗潮将至", "reason": "以关键场景为叙事支点，点明推进。"},
+        {"style": "反讽对照", "title": "旧盟新裂", "reason": "昔日盟约与当下处境形成反差。"},
+        {"style": "主题提炼", "title": "殊途同归", "reason": "凝练本章的核心主题。"},
     ]
     return {
         "nouns": noun_entries,

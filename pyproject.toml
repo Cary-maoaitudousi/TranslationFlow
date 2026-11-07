@@ -5,11 +5,11 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "translationflow"
 version = "2.0.0"
-description = "猫武士同人章节英译中流水线：摘章、换名、AI 翻译、润色审核、写入 Word，全程可控成本"
+description = "通用同人/长篇小说英译中流水线：专有名词表 + IP 档案 + AI 翻译 + 人工审核 + 导出 Word，成本可控"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{ name = "catlikepotato" }]
-keywords = ["translation", "deepseek", "docx", "warriors", "fanfic"]
+keywords = ["translation", "deepseek", "docx", "fanfic", "glossary", "llm"]
 classifiers = [
     "Environment :: Win32 (MS Windows)",
     "Intended Audience :: End Users/Desktop",

@@ -3,6 +3,7 @@
   "OUTPUT_DOC_PATH": "output/译文.docx",
   "GLOBAL_NOUN_TABLE_PATH": "data/noun_table.json",
   "STYLE_SAMPLE_PATH": "samples/style_sample.txt",
+  "FANDOM_PROFILE_PATH": "profiles/generic.json",
   "START_CHAPTER": 1,
   "LOOP_COUNT": 1,
   "CHAPTER_HEADING_PATTERN": "^\\s*Chapter\\s+(\\d+)",
