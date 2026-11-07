@@ -8,9 +8,11 @@ version = "2.0.0"
 description = "通用同人/长篇小说英译中流水线：专有名词表 + IP 档案 + AI 翻译 + 人工审核 + 导出 Word，成本可控"
 readme = "README.md"
 requires-python = ">=3.10"
+license = { file = "LICENSE" }
 authors = [{ name = "catlikepotato" }]
 keywords = ["translation", "deepseek", "docx", "fanfic", "glossary", "llm"]
 classifiers = [
+    "License :: OSI Approved :: MIT License",
     "Environment :: Win32 (MS Windows)",
     "Intended Audience :: End Users/Desktop",
     "Programming Language :: Python :: 3.10",

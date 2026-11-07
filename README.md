@@ -1,5 +1,9 @@
 # TranslationFlow
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB)](https://www.python.org/)
+[![Platform](https://img.shields.io/badge/platform-Windows-0078D4)]()
+
 **把一部（或一整个系列的）英文长篇/同人作品，按章自动翻成中文并导成 Word。**
 适合那些**专有名词特别多、靠通用 AI 翻译很难保证前后一致**的作品——
 通过「你的替换表 + 你的 IP 档案 + 两道人工审核」，把专有名词的译法钉死，再让大模型翻译正文。
@@ -700,3 +704,12 @@ TranslationFlow/
 | 版本 | 说明 |
 |---|---|
 | 2.0.0 | 11 步流水线、IP 档案驱动、峰谷计价、短语级润色、替换表编辑器、可滚动界面、干净运行模式、137 项测试、一键打包 |
+
+---
+
+## 20. 许可证
+
+本项目以 **MIT License** 发布，详见 [LICENSE](LICENSE)。
+
+你可以自由使用、修改、分发（包括商用），只需保留版权声明与许可证文本。
+翻译产物与素材的版权归各自原作者所有，本工具不对译文内容主张任何权利。

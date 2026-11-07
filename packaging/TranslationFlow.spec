@@ -15,6 +15,7 @@ datas = [
     (str(ROOT / "config.example.json"), "."),
     (str(ROOT / ".env.example"), "."),
     (str(ROOT / "README.md"), "."),
+    (str(ROOT / "LICENSE"), "."),
     (str(ROOT / "data" / "noun_table.json"), "data"),
     (str(ROOT / "profiles"), "profiles"),
     (str(ROOT / "samples"), "samples"),

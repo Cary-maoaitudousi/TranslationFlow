@@ -30,6 +30,7 @@ $internal = Join-Path $dist "_internal"
 Copy-Item (Join-Path $internal "config.example.json") (Join-Path $dist "config.example.json") -Force
 Copy-Item (Join-Path $internal ".env.example") (Join-Path $dist ".env.example") -Force
 Copy-Item (Join-Path $internal "README.md") (Join-Path $dist "README.md") -Force
+Copy-Item (Join-Path $internal "LICENSE") (Join-Path $dist "LICENSE") -Force
 if (-not (Test-Path (Join-Path $dist "config.json"))) {
     Copy-Item (Join-Path $dist "config.example.json") (Join-Path $dist "config.json")
 }
