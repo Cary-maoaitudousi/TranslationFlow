@@ -1,0 +1,107 @@
+{
+  "SOURCE_DOC_PATH": "samples/source_sample.txt",
+  "OUTPUT_DOC_PATH": "output/译文.docx",
+  "GLOBAL_NOUN_TABLE_PATH": "data/noun_table.json",
+  "STYLE_SAMPLE_PATH": "samples/style_sample.txt",
+  "START_CHAPTER": 1,
+  "LOOP_COUNT": 1,
+  "CHAPTER_HEADING_PATTERN": "^\\s*Chapter\\s+(\\d+)",
+  "CHAPTER_LABEL_MODE": "doc",
+  "MODEL_FLASH": "deepseek-flash",
+  "MODEL_PRO": "deepseek-v4-pro",
+  "MODEL_STEP3": "deepseek-flash",
+  "MODEL_STEP6": "deepseek-v4-pro",
+  "MODEL_STEP7": "deepseek-v4-pro",
+  "MODEL_STEP10": "deepseek-flash",
+  "THINKING_STEPS": [],
+  "REASONING_EFFORT": "high",
+  "MAX_RETRIES": 5,
+  "RETRY_BACKOFF_BASE": 1.0,
+  "RETRY_BACKOFF_MAX": 60.0,
+  "REQUEST_TIMEOUT_SEC": 600,
+  "MAX_INPUT_TOKENS_PER_CHUNK": 6000,
+  "MAX_STYLE_SAMPLE_TOKENS": 2000,
+  "CHARS_PER_TOKEN_EN": 4.0,
+  "TITLE_INPUT_CHAR_LIMIT": 6000,
+  "OUTPUT_TOKENS_PER_INPUT": 1.7,
+  "MIN_CHUNK_OUTPUT_TOKENS": 1200,
+  "MAX_OUTPUT_TOKENS_CAP": 8000,
+  "THINKING_TOKEN_HEADROOM": 2500,
+  "MAX_TOKENS_HARD_CAP": 16000,
+  "TRUNCATION_RETRIES": 2,
+  "MAX_POLISH_ENTRIES": 15,
+  "POLISH_OUTPUT_MODE": "phrase",
+  "POLISH_CONTEXT_WINDOW": 14,
+  "COST_PRIORITY": true,
+  "WAIT_FOR_OFFPEAK": false,
+  "PRICING_TIER": "auto",
+  "PEAK_WINDOWS": [
+    "09:00-12:00",
+    "14:00-18:00"
+  ],
+  "PEAK_WEEKDAYS": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "HOLIDAYS": [],
+  "BUDGET_TOTAL_CNY": 10.0,
+  "BUDGET_PER_CHAPTER_CNY": 0.3,
+  "CACHE_ENABLED": true,
+  "CACHE_DIR": ".cache/deepseek",
+  "SKIP_COMPLETED": true,
+  "AUTO_APPROVE": false,
+  "TITLE_MODE": "auto",
+  "WORK_DIR": "work",
+  "LOG_DIR": "logs",
+  "COST_LOG_PATH": "logs/cost_log.csv",
+  "PROGRESS_PATH": "logs/progress.json",
+  "CLEAN_INTERMEDIATES": true,
+  "KEEP_CACHE": true,
+  "LOG_LEVEL": "INFO",
+  "MOCK_MODE": false,
+  "WORD_TITLE_TEMPLATE": "第 {label} 章  {title}",
+  "WORD_FONT_NAME": "",
+  "WORD_FONT_SIZE": 0,
+  "WORD_LINE_SPACING": 0,
+  "PRICE_TABLE": {
+    "deepseek-flash": {
+      "peak": {
+        "input_cache_hit": 0.04,
+        "input_cache_miss": 2.0,
+        "output": 8.0
+      },
+      "offpeak": {
+        "input_cache_hit": 0.02,
+        "input_cache_miss": 1.0,
+        "output": 4.0
+      }
+    },
+    "deepseek-v4-pro": {
+      "peak": {
+        "input_cache_hit": 0.3,
+        "input_cache_miss": 9.0,
+        "output": 27.0
+      },
+      "offpeak": {
+        "input_cache_hit": 0.15,
+        "input_cache_miss": 4.5,
+        "output": 13.5
+      }
+    },
+    "_default": {
+      "peak": {
+        "input_cache_hit": 0.3,
+        "input_cache_miss": 9.0,
+        "output": 27.0
+      },
+      "offpeak": {
+        "input_cache_hit": 0.15,
+        "input_cache_miss": 4.5,
+        "output": 13.5
+      }
+    }
+  }
+}

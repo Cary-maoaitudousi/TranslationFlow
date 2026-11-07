@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "translationflow"
+version = "2.0.0"
+description = "猫武士同人章节英译中流水线：摘章、换名、AI 翻译、润色审核、写入 Word，全程可控成本"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "catlikepotato" }]
+keywords = ["translation", "deepseek", "docx", "warriors", "fanfic"]
+classifiers = [
+    "Environment :: Win32 (MS Windows)",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+    "openai>=1.40.0",
+    "python-docx>=1.1.0",
+    "python-dotenv>=1.0.1",
+    "PySide6-Essentials>=6.6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0", "pyinstaller>=6.0"]
+
+[project.scripts]
+translationflow = "tf.gui.main_window:main"
+translationflow-cli = "cli:main"
+
+[tool.setuptools]
+py-modules = ["cli"]
+packages = ["tf", "tf.gui", "tf.review"]
+include-package-data = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

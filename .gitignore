@@ -1,0 +1,28 @@
+# 密钥与本地配置
+.env
+config.json
+
+# 虚拟环境 / 缓存
+.venv/
+.venv*/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+build/
+dist/
+*.egg-info/
+
+# 运行产物
+logs/
+work/
+output/
+*.log
+
+# 工具残留
+probe.txt
+.footprint_snapshot.json
+Thumbs.db
+
+# 本地测试素材（第三方作品，勿上传；仅保留 samples/ 下的自制样例）
+测试用*

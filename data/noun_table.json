@@ -1,0 +1,1161 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "source": "ThunderClan",
+      "target": "雷族"
+    },
+    {
+      "source": "ShadowClan",
+      "target": "影族"
+    },
+    {
+      "source": "WindClan",
+      "target": "风族"
+    },
+    {
+      "source": "RiverClan",
+      "target": "河族"
+    },
+    {
+      "source": "SkyClan",
+      "target": "天族"
+    },
+    {
+      "source": "StarClan",
+      "target": "星族"
+    },
+    {
+      "source": "DarkForest",
+      "target": "黑森林"
+    },
+    {
+      "source": "Moonpool",
+      "target": "月池"
+    },
+    {
+      "source": "FourTrees",
+      "target": "四棵树"
+    },
+    {
+      "source": "StoneLedges",
+      "target": "石崖"
+    },
+    {
+      "source": "SunTrail",
+      "target": "日踪"
+    },
+    {
+      "source": "Thunderpath",
+      "target": "雷鬼路"
+    },
+    {
+      "source": "SunningRocks",
+      "target": "太阳石"
+    },
+    {
+      "source": "Sunningrocks",
+      "target": "太阳石"
+    },
+    {
+      "source": "Tallpines",
+      "target": "高松"
+    },
+    {
+      "source": "GorseCover",
+      "target": "荆棘屏障"
+    },
+    {
+      "source": "WindingPath",
+      "target": "蜿蜒小径"
+    },
+    {
+      "source": "Hollow",
+      "target": "空地"
+    },
+    {
+      "source": "TrainingCave",
+      "target": "训练空洞"
+    },
+    {
+      "source": "Fresh-kill pile",
+      "target": "新鲜猎物堆"
+    },
+    {
+      "source": "Warriors' den",
+      "target": "武士巢穴"
+    },
+    {
+      "source": "Medicine cat's den",
+      "target": "巫医巢穴"
+    },
+    {
+      "source": "Leaders' den",
+      "target": "族长巢穴"
+    },
+    {
+      "source": "Queens' den",
+      "target": "育婴室"
+    },
+    {
+      "source": "Apprentice den",
+      "target": "学徒巢穴"
+    },
+    {
+      "source": "Elder's den",
+      "target": "长老巢穴"
+    },
+    {
+      "source": "Hunting patrol",
+      "target": "狩猎巡逻队"
+    },
+    {
+      "source": "Border patrol",
+      "target": "边界巡逻队"
+    },
+    {
+      "source": "Gathering patrol",
+      "target": "集会巡逻队"
+    },
+    {
+      "source": "Battle",
+      "target": "战斗"
+    },
+    {
+      "source": "Gathering",
+      "target": "森林大会"
+    },
+    {
+      "source": "Code of the Clans",
+      "target": "族群守则"
+    },
+    {
+      "source": "Prophecy",
+      "target": "预言"
+    },
+    {
+      "source": "Omen",
+      "target": "预兆"
+    },
+    {
+      "source": "Sign",
+      "target": "预兆"
+    },
+    {
+      "source": "True kin",
+      "target": "真血亲"
+    },
+    {
+      "source": "Kin",
+      "target": "血亲手足"
+    },
+    {
+      "source": "Leader",
+      "target": "族长"
+    },
+    {
+      "source": "Deputy",
+      "target": "族长代表"
+    },
+    {
+      "source": "Medicine cat",
+      "target": "巫医"
+    },
+    {
+      "source": "Wise cat",
+      "target": "智者"
+    },
+    {
+      "source": "Medicine cat apprentice",
+      "target": "巫医学徒"
+    },
+    {
+      "source": "Warrior",
+      "target": "武士"
+    },
+    {
+      "source": "Apprentice",
+      "target": "学徒"
+    },
+    {
+      "source": "Kit",
+      "target": "幼崽"
+    },
+    {
+      "source": "Queen",
+      "target": "猫后"
+    },
+    {
+      "source": "Elder",
+      "target": "长老"
+    },
+    {
+      "source": "Kittypet",
+      "target": "宠物猫"
+    },
+    {
+      "source": "Loner",
+      "target": "独行猫"
+    },
+    {
+      "source": "Loyalist",
+      "target": "忠于族群的猫"
+    },
+    {
+      "source": "Rogue",
+      "target": "流浪猫"
+    },
+    {
+      "source": "Tribe cat",
+      "target": "部落猫"
+    },
+    {
+      "source": "Pet cat",
+      "target": "宠物猫"
+    },
+    {
+      "source": "Kitting",
+      "target": "分娩"
+    },
+    {
+      "source": "Mate",
+      "target": "交配"
+    },
+    {
+      "source": "Firestar",
+      "target": "火星"
+    },
+    {
+      "source": "Graystripe",
+      "target": "灰条"
+    },
+    {
+      "source": "Sandstorm",
+      "target": "沙风"
+    },
+    {
+      "source": "Brambleclaw",
+      "target": "黑莓掌"
+    },
+    {
+      "source": "Bramblepaw",
+      "target": "黑莓爪"
+    },
+    {
+      "source": "Squirrelflight",
+      "target": "松鼠飞"
+    },
+    {
+      "source": "Squirrelpaw",
+      "target": "松鼠爪"
+    },
+    {
+      "source": "Leafpool",
+      "target": "叶池"
+    },
+    {
+      "source": "Dustpelt",
+      "target": "尘毛"
+    },
+    {
+      "source": "Cinderpelt",
+      "target": "炭毛"
+    },
+    {
+      "source": "Tawnypelt",
+      "target": "褐皮"
+    },
+    {
+      "source": "Spottedleaf",
+      "target": "斑叶"
+    },
+    {
+      "source": "Feathertail",
+      "target": "羽尾"
+    },
+    {
+      "source": "Featherpaw",
+      "target": "羽爪"
+    },
+    {
+      "source": "Stormfur",
+      "target": "暴毛"
+    },
+    {
+      "source": "Stormpaw",
+      "target": "风爪"
+    },
+    {
+      "source": "Silverstream",
+      "target": "银溪"
+    },
+    {
+      "source": "Crowfeather",
+      "target": "鸦羽"
+    },
+    {
+      "source": "Crowpaw",
+      "target": "鸦爪"
+    },
+    {
+      "source": "Yellowfang",
+      "target": "黄牙"
+    },
+    {
+      "source": "Ferncloud",
+      "target": "香薇云"
+    },
+    {
+      "source": "Cloudtail",
+      "target": "云尾"
+    },
+    {
+      "source": "Brightheart",
+      "target": "亮心"
+    },
+    {
+      "source": "Tigerstar",
+      "target": "虎星"
+    },
+    {
+      "source": "Hawkfrost",
+      "target": "鹰霜"
+    },
+    {
+      "source": "Hawkpaw",
+      "target": "鹰爪"
+    },
+    {
+      "source": "Mothwing",
+      "target": "蛾翅"
+    },
+    {
+      "source": "Mothpaw",
+      "target": "蛾爪"
+    },
+    {
+      "source": "One-Eye",
+      "target": "一只眼"
+    },
+    {
+      "source": "Onestar",
+      "target": "一星"
+    },
+    {
+      "source": "Sorreltail",
+      "target": "栗尾"
+    },
+    {
+      "source": "Rainwhisker",
+      "target": "雨须"
+    },
+    {
+      "source": "Thornclaw",
+      "target": "刺掌"
+    },
+    {
+      "source": "Ashfur",
+      "target": "蜡毛"
+    },
+    {
+      "source": "Lionheart",
+      "target": "狮心"
+    },
+    {
+      "source": "Whitestorm",
+      "target": "白风"
+    },
+    {
+      "source": "Mousefur",
+      "target": "鼠毛"
+    },
+    {
+      "source": "Runningwind",
+      "target": "奔风"
+    },
+    {
+      "source": "Runningnose",
+      "target": "奔鼻"
+    },
+    {
+      "source": "Smallear",
+      "target": "小耳"
+    },
+    {
+      "source": "Bluestar",
+      "target": "蓝星"
+    },
+    {
+      "source": "Darkstripe",
+      "target": "黑条"
+    },
+    {
+      "source": "Willowpelt",
+      "target": "柳带"
+    },
+    {
+      "source": "Nightstar",
+      "target": "夜星"
+    },
+    {
+      "source": "Brokenstar",
+      "target": "断星"
+    },
+    {
+      "source": "Brokentail",
+      "target": "断尾"
+    },
+    {
+      "source": "Whitewing",
+      "target": "白翅"
+    },
+    {
+      "source": "Spiderleg",
+      "target": "蛛足"
+    },
+    {
+      "source": "Hollykit",
+      "target": "小冬青"
+    },
+    {
+      "source": "Birchfall",
+      "target": "桦落"
+    },
+    {
+      "source": "Larchkit",
+      "target": "小叶松"
+    },
+    {
+      "source": "Goldenflower",
+      "target": "金花"
+    },
+    {
+      "source": "Longtail",
+      "target": "长尾"
+    },
+    {
+      "source": "Frostfur",
+      "target": "霜毛"
+    },
+    {
+      "source": "Brackenfur",
+      "target": "蕨毛"
+    },
+    {
+      "source": "Sootfur",
+      "target": "烟毛"
+    },
+    {
+      "source": "Mistyfoot",
+      "target": "雾脚"
+    },
+    {
+      "source": "Highstar",
+      "target": "高星"
+    },
+    {
+      "source": "Tallstar",
+      "target": "高星"
+    },
+    {
+      "source": "Morningflower",
+      "target": "晨花"
+    },
+    {
+      "source": "Tornear",
+      "target": "裂耳"
+    },
+    {
+      "source": "Purdy",
+      "target": "波弟"
+    },
+    {
+      "source": "Midnight",
+      "target": "午夜"
+    },
+    {
+      "source": "Ravenpaw",
+      "target": "乌爪"
+    },
+    {
+      "source": "Leapordstar",
+      "target": "豹星"
+    },
+    {
+      "source": "Mudfur",
+      "target": "泥毛"
+    },
+    {
+      "source": "Heavystep",
+      "target": "巨步"
+    },
+    {
+      "source": "Oakfur",
+      "target": "橡毛"
+    },
+    {
+      "source": "Rowanclaw",
+      "target": "花揪掌"
+    },
+    {
+      "source": "Talonpaw",
+      "target": "爪爪"
+    },
+    {
+      "source": "Stoneteller",
+      "target": "尖石巫师"
+    },
+    {
+      "source": "Molepaw",
+      "target": "痣爪"
+    },
+    {
+      "source": "Poppyfrost",
+      "target": "罂粟霜"
+    },
+    {
+      "source": "Honeyfern",
+      "target": "蜜蕨"
+    },
+    {
+      "source": "Cinderheart",
+      "target": "炭心"
+    },
+    {
+      "source": "Hollyleaf",
+      "target": "冬青叶"
+    },
+    {
+      "source": "Lionblaze",
+      "target": "狮焰"
+    },
+    {
+      "source": "Jayfeather",
+      "target": "松鸦羽"
+    },
+    {
+      "source": "Foxleap",
+      "target": "狐跃"
+    },
+    {
+      "source": "Icecloud",
+      "target": "冰云"
+    },
+    {
+      "source": "Millie",
+      "target": "米莉"
+    },
+    {
+      "source": "Briarlight",
+      "target": "荆棘光"
+    },
+    {
+      "source": "Bumblestripe",
+      "target": "黄蜂条"
+    },
+    {
+      "source": "Blossomfall",
+      "target": "梅花落"
+    },
+    {
+      "source": "Rosepetal",
+      "target": "玫瑰瓣"
+    },
+    {
+      "source": "Toadstep",
+      "target": "蟾步"
+    },
+    {
+      "source": "Dovewing",
+      "target": "鸽翅"
+    },
+    {
+      "source": "Ivypool",
+      "target": "常春藤池"
+    },
+    {
+      "source": "Flametail",
+      "target": "焰尾"
+    },
+    {
+      "source": "Dawnpelt",
+      "target": "曙皮"
+    },
+    {
+      "source": "Tigerheart",
+      "target": "虎心"
+    },
+    {
+      "source": "Fallen Leaves",
+      "target": "落叶"
+    },
+    {
+      "source": "Breezepelt",
+      "target": "风皮"
+    },
+    {
+      "source": "Mousewhisker",
+      "target": "鼹鼠须"
+    },
+    {
+      "source": "Scourge",
+      "target": "长鞭"
+    },
+    {
+      "source": "BloodClan",
+      "target": "血族"
+    },
+    {
+      "source": "Sol",
+      "target": "日神"
+    },
+    {
+      "source": "Dawnflower",
+      "target": "曙花"
+    },
+    {
+      "source": "Shadepelt",
+      "target": "荫皮"
+    },
+    {
+      "source": "Mosspelt",
+      "target": "藓毛"
+    },
+    {
+      "source": "Emberdawn",
+      "target": "烬曙"
+    },
+    {
+      "source": "Leopardstar",
+      "target": "豹星"
+    },
+    {
+      "source": "Blackclaw",
+      "target": "黑掌"
+    },
+    {
+      "source": "Shrewpaw",
+      "target": "鼩鼱爪"
+    },
+    {
+      "source": "Brook Where Small Fish Swim",
+      "target": "鱼游之溪"
+    },
+    {
+      "source": "Brook",
+      "target": "溪儿"
+    },
+    {
+      "source": "Crag Where Eagles Nest",
+      "target": "来自鹰巢的鹰崖"
+    },
+    {
+      "source": "Crag",
+      "target": "鹰崖"
+    },
+    {
+      "source": "Barkface",
+      "target": "青面"
+    },
+    {
+      "source": "Spiderpaw",
+      "target": "蛛爪"
+    },
+    {
+      "source": "Crowstrike",
+      "target": "鸦掠"
+    },
+    {
+      "source": "kit",
+      "target": "崽"
+    },
+    {
+      "source": "paw",
+      "target": "爪"
+    },
+    {
+      "source": "star",
+      "target": "星"
+    },
+    {
+      "source": "moon",
+      "target": "月"
+    },
+    {
+      "source": "Russetfur",
+      "target": "黄毛"
+    },
+    {
+      "source": "Reedkit",
+      "target": "芦苇崽"
+    },
+    {
+      "source": "Reedpaw",
+      "target": "芦苇爪"
+    },
+    {
+      "source": "Splashpaw",
+      "target": "斑爪"
+    },
+    {
+      "source": "Volepaw",
+      "target": "田鼠爪"
+    },
+    {
+      "source": "Timberpaw",
+      "target": "木爪"
+    },
+    {
+      "source": "thunderClan",
+      "target": "雷族"
+    },
+    {
+      "source": "shadowClan",
+      "target": "影族"
+    },
+    {
+      "source": "windClan",
+      "target": "风族"
+    },
+    {
+      "source": "riverClan",
+      "target": "河族"
+    },
+    {
+      "source": "skyClan",
+      "target": "天族"
+    },
+    {
+      "source": "starClan",
+      "target": "星族"
+    },
+    {
+      "source": "darkForest",
+      "target": "黑森林"
+    },
+    {
+      "source": "moonpool",
+      "target": "月池"
+    },
+    {
+      "source": "fourTrees",
+      "target": "四棵树"
+    },
+    {
+      "source": "stoneLedges",
+      "target": "石崖"
+    },
+    {
+      "source": "sunTrail",
+      "target": "日踪"
+    },
+    {
+      "source": "thunderpath",
+      "target": "雷鬼路"
+    },
+    {
+      "source": "sunningRocks",
+      "target": "太阳石"
+    },
+    {
+      "source": "tallpines",
+      "target": "高松"
+    },
+    {
+      "source": "gorseCover",
+      "target": "荆棘屏障"
+    },
+    {
+      "source": "windingPath",
+      "target": "蜿蜒小径"
+    },
+    {
+      "source": "hollow",
+      "target": "空地"
+    },
+    {
+      "source": "trainingCave",
+      "target": "训练空洞"
+    },
+    {
+      "source": "fresh-kill pile",
+      "target": "新鲜猎物堆"
+    },
+    {
+      "source": "warriors' den",
+      "target": "武士巢穴"
+    },
+    {
+      "source": "medicine cat's den",
+      "target": "巫医巢穴"
+    },
+    {
+      "source": "leaders' den",
+      "target": "族长巢穴"
+    },
+    {
+      "source": "queens' den",
+      "target": "育婴室"
+    },
+    {
+      "source": "apprentice den",
+      "target": "学徒巢穴"
+    },
+    {
+      "source": "elder's den",
+      "target": "长老巢穴"
+    },
+    {
+      "source": "hunting patrol",
+      "target": "狩猎巡逻队"
+    },
+    {
+      "source": "border patrol",
+      "target": "边界巡逻队"
+    },
+    {
+      "source": "gathering patrol",
+      "target": "集会巡逻队"
+    },
+    {
+      "source": "battle",
+      "target": "战斗"
+    },
+    {
+      "source": "gathering",
+      "target": "森林大会"
+    },
+    {
+      "source": "code of the Clans",
+      "target": "族群守则"
+    },
+    {
+      "source": "prophecy",
+      "target": "预言"
+    },
+    {
+      "source": "true kin",
+      "target": "真血亲族"
+    },
+    {
+      "source": "leader",
+      "target": "族长"
+    },
+    {
+      "source": "deputy",
+      "target": "族长代表"
+    },
+    {
+      "source": "medicine cat",
+      "target": "巫医"
+    },
+    {
+      "source": "wise cat",
+      "target": "智者"
+    },
+    {
+      "source": "medicine cat apprentice",
+      "target": "巫医学徒"
+    },
+    {
+      "source": "warrior",
+      "target": "武士"
+    },
+    {
+      "source": "apprentice",
+      "target": "学徒"
+    },
+    {
+      "source": "queen",
+      "target": "猫后"
+    },
+    {
+      "source": "elder",
+      "target": "长老"
+    },
+    {
+      "source": "kittypet",
+      "target": "宠物猫"
+    },
+    {
+      "source": "loner",
+      "target": "独行猫"
+    },
+    {
+      "source": "loyalist",
+      "target": "忠于族群的猫"
+    },
+    {
+      "source": "rogue",
+      "target": "泼皮猫"
+    },
+    {
+      "source": "tribe cat",
+      "target": "部落猫"
+    },
+    {
+      "source": "pet cat",
+      "target": "宠物猫"
+    },
+    {
+      "source": "kitting",
+      "target": "分娩"
+    },
+    {
+      "source": "Cody",
+      "target": "科迪"
+    },
+    {
+      "source": "Ravensight",
+      "target": "渡鸦兆"
+    },
+    {
+      "source": "Tinypaw",
+      "target": "小爪"
+    },
+    {
+      "source": "Tinykit",
+      "target": "小崽"
+    },
+    {
+      "source": "Graypaw",
+      "target": "灰爪"
+    },
+    {
+      "source": "Tigerclaw",
+      "target": "虎掌"
+    },
+    {
+      "source": "Firepaw",
+      "target": "火爪"
+    },
+    {
+      "source": "Cinderkit",
+      "target": "炭崽"
+    },
+    {
+      "source": "Cinderpaw",
+      "target": "炭爪"
+    },
+    {
+      "source": "Swiftkit",
+      "target": "迅崽"
+    },
+    {
+      "source": "Swiftpaw",
+      "target": "迅爪"
+    },
+    {
+      "source": "Brightkit",
+      "target": "亮崽"
+    },
+    {
+      "source": "Brightpaw",
+      "target": "亮爪"
+    },
+    {
+      "source": "Thornkit",
+      "target": "蕨崽"
+    },
+    {
+      "source": "Thornpaw",
+      "target": "蕨爪"
+    },
+    {
+      "source": "Blackfoot",
+      "target": "黑脚"
+    },
+    {
+      "source": "Tinystorm",
+      "target": "小风"
+    },
+    {
+      "source": "Ashpaw",
+      "target": "蜡爪"
+    },
+    {
+      "source": "Deadstar",
+      "target": "坏星"
+    },
+    {
+      "source": "Lionkit",
+      "target": "小狮"
+    },
+    {
+      "source": "Jaykit",
+      "target": "小松鸦"
+    },
+    {
+      "source": "Larchtail",
+      "target": "杉尾"
+    },
+    {
+      "source": "Hollypaw",
+      "target": "冬青爪"
+    },
+    {
+      "source": "Jaypaw",
+      "target": "松鸦爪"
+    },
+    {
+      "source": "Bramblestar",
+      "target": "黑莓星"
+    },
+    {
+      "source": "Leafstar",
+      "target": "叶星"
+    },
+    {
+      "source": "Thistleclaw",
+      "target": "蓟掌"
+    },
+    {
+      "source": "Hollowpaw",
+      "target": "空爪"
+    },
+    {
+      "source": "The Warden",
+      "target": "看守者"
+    },
+    {
+      "source": "Ivypaw",
+      "target": "藤爪"
+    },
+    {
+      "source": "Shrewnose",
+      "target": "鼩鼱鼻"
+    },
+    {
+      "source": "Snowhawk",
+      "target": "雪鹰"
+    },
+    {
+      "source": "Rock",
+      "target": "岩石"
+    },
+    {
+      "source": "Cherrypaw",
+      "target": "樱桃爪"
+    },
+    {
+      "source": "Dovepaw",
+      "target": "鸽爪"
+    },
+    {
+      "source": "Littlecloud",
+      "target": "小云"
+    },
+    {
+      "source": "Kestrelflight",
+      "target": "隼飞"
+    },
+    {
+      "source": "Willowshine",
+      "target": "柳光"
+    },
+    {
+      "source": "Blackstar",
+      "target": "黑星"
+    },
+    {
+      "source": "Mistystar",
+      "target": "雾星"
+    },
+    {
+      "source": "Redwillow",
+      "target": "红柳"
+    },
+    {
+      "source": "Antpelt",
+      "target": "蚁皮"
+    },
+    {
+      "source": "Daisy",
+      "target": "黛西"
+    },
+    {
+      "source": "Berrynose",
+      "target": "莓鼻"
+    },
+    {
+      "source": "Smokefoot",
+      "target": "烟足"
+    },
+    {
+      "source": "Snowbird",
+      "target": "雪鸟"
+    },
+    {
+      "source": "Whitetail",
+      "target": "白尾"
+    },
+    {
+      "source": "Harespring",
+      "target": "兔泉"
+    },
+    {
+      "source": "Swallowtail",
+      "target": "燕尾"
+    },
+    {
+      "source": "Mintfur",
+      "target": "薄荷毛"
+    },
+    {
+      "source": "Grasspelt",
+      "target": "草皮"
+    },
+    {
+      "source": "Graymist",
+      "target": "灰雾"
+    },
+    {
+      "source": "Stormheart",
+      "target": "暴心"
+    },
+    {
+      "source": "Reedwhisker",
+      "target": "芦苇须"
+    },
+    {
+      "source": "Weaselfur",
+      "target": "鼬毛"
+    },
+    {
+      "source": "Boulderpaw",
+      "target": "巨石爪"
+    },
+    {
+      "source": "firepaw",
+      "target": "火爪"
+    },
+    {
+      "source": "Featherwhisker",
+      "target": "羽须"
+    },
+    {
+      "source": "Alderpaw",
+      "target": "赤杨爪"
+    },
+    {
+      "source": "Alderheart",
+      "target": "赤杨心"
+    },
+    {
+      "source": "Darktail",
+      "target": "暗尾"
+    },
+    {
+      "source": "Onewhisker",
+      "target": "一根须"
+    },
+    {
+      "source": "Robinwing",
+      "target": "知更翅"
+    },
+    {
+      "source": "Squirrelstar",
+      "target": "松鼠星"
+    }
+  ]
+}

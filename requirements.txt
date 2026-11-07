@@ -1,0 +1,5 @@
+openai>=1.40.0
+python-docx>=1.1.0
+python-dotenv>=1.0.1
+PySide6-Essentials>=6.6.0
+pytest>=8.0.0
