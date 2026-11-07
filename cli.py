@@ -138,17 +138,32 @@ def cmd_report(args) -> int:
 
 
 def cmd_prompts(args) -> int:
-    """把提示词打印出来，方便人工审阅（不调用 API）。"""
-    name = args.name or "all"
-    blocks = {
-        "nouns": prompts.NOUNS_SYSTEM,
-        "translate": prompts.TRANSLATE_SYSTEM,
-        "polish": prompts.POLISH_SYSTEM,
-        "titles": prompts.TITLES_SYSTEM,
+    """把提示词打印出来，方便人工审阅（不调用 API）。
+
+    提示词由 IP 档案渲染，所以换档案后先跑一次这个命令，确认命名规则与文化适配
+    要求符合预期，再开始真跑。
+    """
+    cfg = _prepare(args)
+    from tf import prompts
+    from tf.fandom import profile_for
+
+    profile = profile_for(cfg)
+    kind = args.name or "all"
+    style_note = "（示例文风片段，实际运行时用你的文风样本）"
+    blocks: dict[str, str] = {
+        "nouns": prompts.nouns_system(profile),
+        "translate": prompts.translate_system(profile, style_note, False),
+        "polish": prompts.polish_system(profile),
+        "polish_sentence": prompts.polish_sentence_system(profile),
+        "titles": prompts.titles_system(profile),
     }
-    for key, text in blocks.items():
-        if name in ("all", key):
-            print(f"\n{'=' * 30} {key} {'=' * 30}\n{text}")
+    print(f"# IP 档案：{profile.name}"
+          f"（命名规则 {len(profile.naming_rules)} 条 / 文化适配 {len(profile.culture_rules)} 条）")
+    if profile.is_fallback:
+        print("# ⚠ 未找到档案文件，正在使用通用兜底规则")
+    for key, body in blocks.items():
+        if kind in ("all", key) or (kind == "polish" and key.startswith("polish")):
+            print(f"\n{'=' * 30} {key} {'=' * 30}\n{body}")
     return 0
 
 
